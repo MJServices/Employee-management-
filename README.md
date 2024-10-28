@@ -1,50 +1,30 @@
-# React + TypeScript + Vite
+# Employee Management System (React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Employee Management System** built with **React** and **TypeScript**. This web app helps admins assign tasks, monitor employee progress, and manage employees efficiently. Employees can track and update their tasks via their own dashboard. The system includes a full **authentication system** with role-based access for admins and employees. The app is **fully responsive**, ensuring smooth usability on desktops, tablets, and mobile devices.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Admin Dashboard
+- Assign tasks to employees  
+- Monitor employee progress in real-time  
+- Manage employee data and profiles  
 
-## Expanding the ESLint configuration
+### Employee Dashboard
+- View assigned tasks and deadlines  
+- Update task status and progress  
+- Track personal performance metrics  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Authentication System
+- Secure sign-up, login, and session management  
+- Role-based access control (Admin and Employee roles)
 
-- Configure the top-level `parserOptions` property like this:
+### Responsive Design
+- Optimized for **desktop, tablet, and mobile** views  
+- Consistent experience across all screen sizes
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Installation
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/employee-management-system.git
+   cd employee-management-system
