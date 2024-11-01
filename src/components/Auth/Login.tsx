@@ -2,21 +2,25 @@ import { useState } from "react";
 import "remixicon/fonts/remixicon.css";
 // import { Link } from "react-router-dom";
 
-const Login = () => {
+interface LoginProps {
+  handleSubmit: (email: string, password: string) => void;
+}
+const Login = ({ handleSubmit }: LoginProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passType, setPassType] = useState("password");
-  const [passErrror, setPassError] = useState("")
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>)=>{
-    e.preventDefault()
-    if(password.length < 8){
-        setPassError("Password must be at least 8 characters long")
-    }else{
-        setPassError("")
-        setEmail("")
-        setPassword("")
+  const [passErrror, setPassError] = useState("");
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (password.length < 8) {
+      setPassError("Password must be at least 8 characters long");
+    } else {
+      handleSubmit(email, password);
+      setPassError("");
+      setEmail("");
+      setPassword("");
     }
-  }
+  };
   return (
     <section className="bg-zinc-800 h-[100vh] overflow-y-hidden w-[100vw] md:flex md:justify-center md:items-center">
       <div className="bg-zinc-800 h-[100vh] md:h-[90vh] overflow-hidden w-[100vw] md:w-[50vw] lg:w-[35vw] md:border-2 rounded-2xl md:border-[#834045] display-none md:display-block">
@@ -26,9 +30,12 @@ const Login = () => {
         >
           Log In
         </header>
-        <form onSubmit={(e) => {
-            submitHandler(e)
-        }} className="flex items-center justify-center flex-col gap-8 w-full h-[90%]">
+        <form
+          onSubmit={(e) => {
+            submitHandler(e);
+          }}
+          className="flex items-center justify-center flex-col gap-8 w-full h-[90%]"
+        >
           <input
             required
             type="email"
@@ -48,7 +55,9 @@ const Login = () => {
               value={password}
               placeholder="Password"
             />
-            <div className="text-red-500 text-lg absolute left-[14%] -bottom-8">{passErrror}</div>
+            <div className="text-red-500 text-lg absolute left-[14%] -bottom-8">
+              {passErrror}
+            </div>
             <button
               style={{ fontFamily: "Roboto" }}
               className="text-white text-xl absolute right-[15%]"
